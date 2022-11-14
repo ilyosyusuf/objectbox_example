@@ -12,6 +12,15 @@ class ObjectBox {
   static Future<ObjectBox> init() async {
     final store = await openStore();
 
+    if (Sync.isAvailable()) {
+      final synClient = Sync.client(
+        store,
+        "ws//0.0.0.0:9999",
+        SyncCredentials.none(),
+      );
+      synClient.start();
+    }
+
     return ObjectBox._init(store);
   }
 
