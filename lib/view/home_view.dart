@@ -43,7 +43,11 @@ class _HomeViewState extends State<HomeView> {
               itemCount: users.length,
               itemBuilder: (context, i){
                 final user = users[i];
-                return ListTile(title: Text(user.name), subtitle: Text(user.email));
+                return Dismissible(
+                  onDismissed: (v){
+                    objectBox.deleteUser(user.id);
+                  },
+                  key: UniqueKey() ,child: ListTile(title: Text(user.name), subtitle: Text(user.email)));
             });
           }
         },
