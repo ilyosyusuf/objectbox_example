@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:objectbox_example/helper/object_box.dart';
 import 'package:objectbox_example/view/home_view.dart';
 
-void main() {
+late ObjectBox objectBox;
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  objectBox = await ObjectBox.init();
   runApp(MyApp());
 }
 
@@ -9,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'ObjectBox',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,

@@ -4,6 +4,8 @@ import 'package:objectbox_example/models/user_model.dart';
 class HomeView extends StatelessWidget {
   HomeView({Key? key}) : super(key: key);
 
+  
+
   List<UserModel> users = [
     UserModel(name: "User 1", email: "user1@gmail.com"),
     UserModel(name: "User 2", email: "user2@gmail.com"),
